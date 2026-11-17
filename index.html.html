@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Usha ji</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Nunito:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#FFE3EC; --card:#FFF8FA; --ink:#3A1040; --soft:#7A4A80; --rose:#E8467C; --gold:#F7B32B; --leaf:#4E9C70;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif; --sans:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#1E0A24; --card:#2E1236; --ink:#FFE9F0; --soft:#D9A8DD; --rose:#FF6B9D; --gold:#FFC857; --leaf:#7BD0A0;}
+}
+:root[data-theme="dark"]{--bg:#1E0A24; --card:#2E1236; --ink:#FFE9F0; --soft:#D9A8DD; --rose:#FF6B9D; --gold:#FFC857; --leaf:#7BD0A0;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:var(--sans);display:flex;align-items:center;justify-content:center;padding:20px 16px}
+.card{position:relative;width:100%;max-width:440px;background:var(--card);border-radius:28px;padding:32px 26px 30px;text-align:center;box-shadow:0 18px 50px rgba(120,30,90,.22);border:2px solid var(--gold);overflow:hidden}
+.card::before,.card::after{content:"";position:absolute;left:0;right:0;height:10px;background:repeating-linear-gradient(90deg,var(--rose) 0 14px,var(--gold) 14px 28px,var(--leaf) 28px 42px)}
+.card::before{top:0}.card::after{bottom:0}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,9vw,2.6rem);line-height:1.1;margin:10px 0 6px}
+h1 em{display:block;color:var(--rose);font-size:.9em}
+.sub{color:var(--soft);margin:0 0 18px}
+button{font:600 1.05rem var(--sans);color:#fff;background:var(--rose);border:0;border-radius:999px;padding:14px 28px;cursor:pointer;min-height:48px;transition:transform .15s}
+button:active{transform:scale(.96)}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+button.ghost{background:transparent;color:var(--rose);border:2px solid var(--rose)}
+.hidden{display:none}
+svg.cake{width:190px;height:auto;margin:6px auto 0;display:block}
+.flame{transform-origin:100px 52px;animation:flick 1s ease-in-out infinite alternate}
+.out .flame{display:none}
+.smoke{opacity:0}
+.out .smoke{animation:smoke 1.6s ease-out forwards}
+@keyframes flick{from{transform:scale(1,1) rotate(-3deg)}to{transform:scale(.92,1.1) rotate(3deg)}}
+@keyframes smoke{0%{opacity:.8;transform:translateY(0)}100%{opacity:0;transform:translateY(-22px)}}
+.msg p{font-family:var(--serif);font-size:1.12rem;line-height:1.55;margin:0 0 14px;opacity:0;transform:translateY(10px);transition:opacity .7s ease,transform .7s ease;transition-delay:calc(var(--i)*.9s)}
+.open .msg p{opacity:1;transform:none}
+.msg p.big{font-size:1.45rem;color:var(--rose)}
+.msg b{font-weight:500;color:var(--rose)}
+.actions{opacity:0;transition:opacity .6s ease;transition-delay:5.2s;margin-top:8px}
+.open .actions{opacity:1}
+.final{font-family:var(--serif);font-size:1.3rem;color:var(--rose);margin:16px 0 4px;min-height:1.6em}
+canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
+.hint{font-size:.9rem;color:var(--soft);margin-top:14px}
+@media (prefers-reduced-motion:reduce){.flame{animation:none}.msg p,.actions{transition-duration:.01s;transition-delay:0s}}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<main class="card" id="card">
+  <section id="cover">
+    <svg class="cake" viewBox="0 0 200 170" role="img" aria-label="Birthday cake with a lit candle">
+      <path class="smoke" d="M100 40 q-6 -10 0 -18 q6 -8 0 -16" fill="none" stroke="var(--soft)" stroke-width="3" stroke-linecap="round"/>
+      <g class="flame"><path d="M100 24 C90 38 92 52 100 54 C108 52 110 38 100 24Z" fill="var(--gold)"/><path d="M100 36 C96 44 97 50 100 51 C103 50 104 44 100 36Z" fill="var(--rose)"/></g>
+      <rect x="96" y="52" width="8" height="30" rx="3" fill="var(--leaf)"/>
+      <rect x="40" y="82" width="120" height="34" rx="8" fill="var(--rose)"/>
+      <path d="M40 94 q10 12 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V82 H40Z" fill="var(--card)"/>
+      <rect x="22" y="116" width="156" height="38" rx="10" fill="var(--gold)"/>
+      <circle cx="52" cy="135" r="5" fill="var(--card)"/><circle cx="100" cy="135" r="5" fill="var(--card)"/><circle cx="148" cy="135" r="5" fill="var(--card)"/>
+      <rect x="12" y="154" width="176" height="8" rx="4" fill="var(--leaf)"/>
+    </svg>
+    <h1>Happy Birthday,<em>Usha ji</em></h1>
+    <p class="sub">A little card, made just for you.</p>
+    <button id="openBtn" type="button">Open your card</button>
+  </section>
+
+  <section id="inside" class="hidden">
+    <div class="msg">
+      <p class="big" style="--i:0">Happy birthday, Usha ji!</p>
+      <p style="--i:1">To the most sweet, kind and beautiful person I have ever met. I am blessed to have you in my life.</p>
+      <p style="--i:2">May you never stop smiling, and may you cherish everything as you do now.</p>
+      <p style="--i:3">Always be happy and healthy. <b>May you never change.</b></p>
+      <p style="--i:4">Once again, happy birthday. Many, many happy returns of the day. Enjoy it to the fullest.</p>
+    </div>
+    <div class="actions">
+      <button id="wishBtn" type="button">Make a wish</button>
+      <p class="hint">Tap anywhere on the card for flowers.</p>
+    </div>
+    <p class="final" id="final" aria-live="polite"></p>
+  </section>
+</main>
+
+<script>
+(function(){
+  var card=document.getElementById('card'), cover=document.getElementById('cover'), inside=document.getElementById('inside');
+  var cv=document.getElementById('fx'), ctx=cv.getContext('2d'), parts=[], running=false, W=0, H=0, dpr=1;
+  var colors=['#E8467C','#F7B32B','#4E9C70','#FF8FB5','#FFD66B','#9B5DE5'];
+  var still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function size(){dpr=window.devicePixelRatio||1;W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+  size();addEventListener('resize',size);
+
+  function burst(x,y,n,flowers){
+    if(still)n=Math.min(n,10);
+    for(var i=0;i<n;i++){
+      var a=Math.random()*Math.PI*2, s=3+Math.random()*7;
+      parts.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-4,r:4+Math.random()*5,rot:Math.random()*6,vr:(Math.random()-.5)*.3,
+        c:colors[i%colors.length],life:1,flower:flowers&&Math.random()<.45,e:['🌼','🌸','🌺'][i%3]});
+    }
+    if(!running){running=true;requestAnimationFrame(tick)}
+  }
+  function tick(){
+    ctx.clearRect(0,0,W,H);
+    parts=parts.filter(function(p){return p.life>0&&p.y<H+30});
+    parts.forEach(function(p){
+      p.vy+=.16;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;p.life-=.006;
+      ctx.save();ctx.globalAlpha=Math.max(p.life,0);ctx.translate(p.x,p.y);ctx.rotate(p.rot);
+      if(p.flower){ctx.font='20px serif';ctx.textAlign='center';ctx.fillText(p.e,0,0)}
+      else{ctx.fillStyle=p.c;ctx.fillRect(-p.r,-p.r/2,p.r*2,p.r)}
+      ctx.restore();
+    });
+    if(parts.length)requestAnimationFrame(tick);else{running=false;ctx.clearRect(0,0,W,H)}
+  }
+
+  document.getElementById('openBtn').addEventListener('click',function(e){
+    cover.classList.add('hidden');inside.classList.remove('hidden');
+    void inside.offsetWidth;card.classList.add('open');
+    burst(W/2,H/3,70,true);
+  });
+
+  var wished=false;
+  document.getElementById('wishBtn').addEventListener('click',function(e){
+    e.stopPropagation();
+    if(!wished){
+      wished=true;
+      document.getElementById('final').textContent='Your wish is on its way. Happy birthday, Usha ji! 🎂';
+      this.textContent='Celebrate again';
+      burst(W/2,H/2,140,true);
+    }else{
+      burst(W/2,H/2,120,true);
+    }
+  });
+
+  card.addEventListener('click',function(e){
+    if(!card.classList.contains('open')||e.target.closest('button'))return;
+    burst(e.clientX,e.clientY,18,true);
+  });
+})();
+</script>
+</body>
+</html>
